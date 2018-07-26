@@ -4,3 +4,5 @@ A dummy project for deploying web application using:
 - gunicorn
 - Nginx
 - Docker
+
+Be in root folder (WebApp_dummy) and run `scripts\bootstrap.sh`
