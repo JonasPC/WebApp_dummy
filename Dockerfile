@@ -1,12 +1,20 @@
 
 FROM continuumio/miniconda3:latest
 
-COPY . /home/files
+
+# VOLUME . /home/files/
+COPY . /home/files/
 
 RUN conda env create -f /home/files/environment.yml
 
-RUN source activate webapp
+RUN which python
 
-RUN /home/files/version_info.py
+
+
+
+
+
+
+
 
 
