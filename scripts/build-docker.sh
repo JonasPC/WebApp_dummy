@@ -3,6 +3,9 @@
 #be sure that we are in WebApp_dummy
 pwd
 
-cp environment.yml anaconda/environment.yml
+#  conda env --> probably shouldn't be used
 
-docker build --tag conda ./anaconda
+# cp environment.yml anaconda/environment.yml
+# docker build --tag conda ./anaconda
+
+pip freeze > python365/requirements.txt
