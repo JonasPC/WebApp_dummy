@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  python365:
+    build: ./python365
+    restart: always
+    command: gunicorn -w 1 -b :8050 dash_app:server
+    volumes: 
+      - ./python365:/python365
+    ports:
+      - "8050:8050"
+
+  nginx:
+    build: ./nginx
+    depends_on:
+      - python365
+    command: nginx -g "daemon off;"
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/nginx

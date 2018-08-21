@@ -1,9 +1,16 @@
-FROM ubuntu:latest
-MAINTAINER Rajdeep Dua "dua_rajdeep@yahoo.com"
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
-COPY . /app
-WORKDIR /app
+FROM python:3.6.5
+
+ENV PYTHONBUFFERED=1
+ENV WEBAPP_DIR=/python365
+
+RUN mkdir -p /var/log/gunicorn
+RUN mkdir $WEBAPP_DIR
+
+WORKDIR $WEBAPP_DIR
+
+ADD requirements.txt $WEBAPP_DIR
 RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["dash_app.py"]
+
+ADD . $WEBAPP_DIR
+
+

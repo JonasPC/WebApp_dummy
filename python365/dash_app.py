@@ -1,8 +1,11 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+from flask import Flask
 
-app = dash.Dash()
+server = Flask(__name__)
+
+app = dash.Dash(server=server)
 
 app.css.append_css({
     'external_url': (
